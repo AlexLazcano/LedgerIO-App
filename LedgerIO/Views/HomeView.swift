@@ -9,8 +9,22 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        VStack {
-            Text("LedgerIO")
+        NavigationView {
+            
+            VStack {
+                Text("LedgerIO")
+                Spacer()
+                
+                
+                HStack {
+                    Text("Transactions")
+                }
+                .padding()
+                .border(Color.white)
+                Spacer()
+                
+            }.padding()
+                
         }
         
     }

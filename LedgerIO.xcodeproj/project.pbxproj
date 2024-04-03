@@ -14,6 +14,7 @@
 		8583D3312BBDF10600A3D498 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8583D3302BBDF10600A3D498 /* User.swift */; };
 		8583D3332BBDF11E00A3D498 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8583D3322BBDF11E00A3D498 /* Transaction.swift */; };
 		8583D3352BBDF15100A3D498 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8583D3342BBDF15100A3D498 /* HomeView.swift */; };
+		8583D3372BBDF4B500A3D498 /* TransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8583D3362BBDF4B500A3D498 /* TransactionsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		8583D3302BBDF10600A3D498 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8583D3322BBDF11E00A3D498 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		8583D3342BBDF15100A3D498 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		8583D3362BBDF4B500A3D498 /* TransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				8583D3342BBDF15100A3D498 /* HomeView.swift */,
+				8583D3362BBDF4B500A3D498 /* TransactionsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				8583D3332BBDF11E00A3D498 /* Transaction.swift in Sources */,
 				8583D3352BBDF15100A3D498 /* HomeView.swift in Sources */,
 				8583D3312BBDF10600A3D498 /* User.swift in Sources */,
+				8583D3372BBDF4B500A3D498 /* TransactionsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
