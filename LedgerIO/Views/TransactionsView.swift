@@ -88,11 +88,15 @@ struct TransactionRow: View {
                 .stroke(.black, lineWidth: 2)
         )
         .padding(.horizontal)
+        .navigationTitle("Transactions")
+        .navigationBarTitleDisplayMode(.large)
     }
+        
         
 }
 
 struct TransactionsView: View {
+    @State private var isShowingSheet = false
     
     var body: some View {
         
@@ -104,6 +108,20 @@ struct TransactionsView: View {
             }
             
         }
+        Button(action: {
+            isShowingSheet.toggle()
+        }) {
+            HStack {
+                Text("Add Transaction")
+                Image(systemName: "plus.circle")
+            }
+            .modifier(AddDefaultButtonStyles())
+            
+        }
+        .sheet(isPresented: $isShowingSheet){
+            AddTransactionForm(isShowing: $isShowingSheet)
+        }
+       
        
         
     }

@@ -10,23 +10,29 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         NavigationView {
-            
             VStack {
-                Text("LedgerIO")
                 Spacer()
-                
-                
-                HStack {
+                NavigationLink(destination: TransactionsView()) {
                     Text("Transactions")
+                        .modifier(AddDefaultButtonStyles())
                 }
-                .padding()
-                .border(Color.white)
+                .navigationTitle("LedgerIO")
+                
+                NavigationLink(destination: FriendsView()) {
+                    Text("Friends")
+                        .modifier(AddDefaultButtonStyles())
+                }
+                Button(action: {
+                    
+                }, label: {
+                    Text("Add Transaction")
+                        .modifier(AddDefaultButtonStyles())
+                })
                 Spacer()
-                
-            }.padding()
-                
+            }
+            .padding()
+            
         }
-        
     }
 }
 
