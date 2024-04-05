@@ -21,8 +21,8 @@ struct Transaction: Codable, Hashable {
     let description: String
     
     init(from: User, to: User, totalAmount: Double, date: Date, description: String) {
-            self.recipient = from
-            self.sender = to
+            self.recipient = to
+            self.sender = from
             self.totalAmount = totalAmount
             self.amountPaidByRecepient = totalAmount / 2  // Set default amountPaid to half of totalAmount
             self.date = date
@@ -30,8 +30,8 @@ struct Transaction: Codable, Hashable {
         }
     
     init(from: User, to: User, totalAmount: Double, date: Date, description: String, percantagePaid: Double) {
-            self.recipient = from
-            self.sender = to
+            self.recipient = to
+            self.sender = from
             self.totalAmount = totalAmount
             self.amountPaidByRecepient = totalAmount * percantagePaid  // Set default amountPaid to half of totalAmount
             self.date = date

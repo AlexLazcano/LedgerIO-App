@@ -34,11 +34,11 @@ struct TransactionRow: View {
             .padding(.horizontal, 20)
             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
             .frame(height: 50)
-           
-           
+            
+            
             Divider()
                 .background(Color.black)
-               
+            
             Grid() {
                 GridRow {
                     Text(transaction.recipient.name)
@@ -65,10 +65,10 @@ struct TransactionRow: View {
                     .bold()
                 
                 Spacer()
-//                Text("Paid")
+                //                Text("Paid")
                 Text("Pending")
-//                Image(systemName: "checkmark.circle.fill")
-//                    .font(.title)
+                //                Image(systemName: "checkmark.circle.fill")
+                //                    .font(.title)
                 Image(systemName: "hourglass.circle.fill")
                     .font(.title)
             }
@@ -91,8 +91,6 @@ struct TransactionRow: View {
         .navigationTitle("Transactions")
         .navigationBarTitleDisplayMode(.large)
     }
-        
-        
 }
 
 struct TransactionsView: View {
@@ -121,9 +119,6 @@ struct TransactionsView: View {
         .sheet(isPresented: $isShowingSheet){
             AddTransactionForm(isShowing: $isShowingSheet)
         }
-       
-       
-        
     }
 }
 

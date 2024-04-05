@@ -14,7 +14,7 @@ var friends: [User] = [user1, user2]
 enum SplitTypes: String, CaseIterable {
     case fixedAmount = "Fixed Amount"
     case half = "Half"
-//    case percentage = "Percentage"
+    //    case percentage = "Percentage"
     
 }
 
@@ -29,7 +29,7 @@ struct AddTransactionForm: View {
     let displayNames: [String] = SplitTypes.allCases.map { $0.rawValue }
     
     var body: some View {
-        Form {
+        List {
             Text(mainUser.name)
             
             Section(header: Text("Select Friend")) {
@@ -51,7 +51,6 @@ struct AddTransactionForm: View {
                 TextField("Enter your Total", text: $total)
                     .numbersOnly($total, includeDecimal: true)
                     .onChange(of: total) { _, newValue in
-                        
                         switch split {
                         case .half:
                             splitAmount = calcHalfValue(total: total)
@@ -83,26 +82,52 @@ struct AddTransactionForm: View {
                     TextField("Enter your Fixed Amount", text: $splitAmount)
                         .numbersOnly($total, includeDecimal: true)
                     
-//                case .percentage:
-//                    TextField("Enter your Percentage Amount", text: $splitAmount)
-//                        .numbersOnly($total, includeDecimal: false)
+                    //                case .percentage:
+                    //                    TextField("Enter your Percentage Amount", text: $splitAmount)
+                    //                        .numbersOnly($total, includeDecimal: false)
                     
                 }
                 
                 HStack {
+                    
                     VStack {
                         Text("You")
+                            .font(.title3)
                         Text("$\(String(format: "%.2f", Double(splitAmount) ?? 0.0))")
+                            .font(.title2)
                     }
+                    .bold()
+                    .padding(4)
+                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                    .background(Color.green.gradient)
+                    .cornerRadius(10)
+
+                    
+                    Image(systemName: "arrow.forward.square")
+                        .font(.title)
+                        .foregroundColor(.black)
+                  
                     
                     VStack {
                         Text("Friend")
+                            .font(.title3)
+                            
                         Text("$\(String(format: "%.2f", ((Double(total) ?? 0.0) - (Double(splitAmount) ?? 0.0))))")
-
+                            .font(.title2)
+                           
                     }
+                    .bold()
+                    .padding(4)
+                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                    .background(Color.red.gradient)
+                    .cornerRadius(10)
+                   
+                    
                 }
+                .foregroundColor(.white)
                 
             }
+            
             Section(header: Text("Description")) {
                 TextField("Enter Description", text: $description)
                 
@@ -110,32 +135,32 @@ struct AddTransactionForm: View {
             
             Section {
                 HStack {
-                    Button {
-                    
-                    } label: {
+                    Button(role: .destructive, action: {
+                        onCancelForm()
+                    }, label: {
                         Text("Cancel")
-                            .modifier(AddDefaultButtonStyles())
-                            
-                    }
+                            .frame(maxWidth: .infinity)
+                    })
                     
                     
                     Button {
                         onSubmitForm()
                     } label: {
                         Text("Add")
-                            .modifier(AddDefaultButtonStyles())
+                            .frame(maxWidth: .infinity)
                     }
-
-
+                    .buttonStyle(.bordered)
+                    .disabled(true)
                 }
             }
         }
+        .listStyle(.grouped)
     }
     
     func calcSenderValue(total: String, amount: String) -> String {
         let splitAmountDouble = Double(amount) ?? 0.0
         let senderValue = (Double(total) ?? 0.0) - splitAmountDouble
-
+        
         return String(senderValue)
     }
     func calcHalfValue(total: String) -> String {
@@ -143,21 +168,31 @@ struct AddTransactionForm: View {
         let half = totalDouble  / 2;
         
         return String(half)
-    
+        
     }
     func onCancelForm() {
         isShowing.toggle()
         
         print("Cancelled")
-
+        
     }
     
     func onSubmitForm() {
-        isShowing.toggle()
+        
+        //        isShowing.toggle()
+        
+        let newTransaction: Transaction = if split == .half {
+            Transaction(from: friends[selectedFriendIndex!], to: mainUser, totalAmount: Double(total)!, date: .now, description: description)
+        } else {
+            Transaction(from: friends[selectedFriendIndex!], to: mainUser, totalAmount: Double(total)!, date: .now, description: description, percantagePaid: Double(splitAmount)!)
+        }
+        print(newTransaction)
         print("Done")
     }
 }
 
-//#Preview {
-////    AddTransactionForm(onDismissHandler: nil)
-//}
+#Preview {
+    
+    @State var value: Bool = true;
+    return AddTransactionForm(isShowing: $value)
+}
