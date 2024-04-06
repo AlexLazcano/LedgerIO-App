@@ -182,10 +182,10 @@ struct AddTransactionForm: View {
         
         //        isShowing.toggle()
         
-        let newTransaction: Transaction = if split == .half {
-            Transaction(from: friends[selectedFriendIndex!], to: mainUser, totalAmount: Double(total)!, date: .now, description: description)
+        let newTransaction: SplitTransaction = if split == .half {
+            SplitTransaction(from: friends[selectedFriendIndex!], to: mainUser, totalAmount: Double(total)!, date: .now, description: description)
         } else {
-            Transaction(from: friends[selectedFriendIndex!], to: mainUser, totalAmount: Double(total)!, date: .now, description: description, percantagePaid: Double(splitAmount)!)
+            SplitTransaction(from: friends[selectedFriendIndex!], to: mainUser, totalAmount: Double(total)!, date: .now, description: description, percantagePaid: Double(splitAmount)!)
         }
         print(newTransaction)
         print("Done")

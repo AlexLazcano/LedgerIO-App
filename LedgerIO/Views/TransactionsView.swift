@@ -10,15 +10,15 @@ import SwiftUI
 var user1 = User(id: "1", name: "Alex")
 var user2 = User(id: "2", name: "Erik")
 
-var transaction1 = Transaction(from: user1, to: user2, totalAmount: 100, date: .now, description: "Food")
+var transaction1 = SplitTransaction(from: user1, to: user2, totalAmount: 100, date: .now, description: "Food")
 
-var transaction2 = Transaction(from: user1, to: user2, totalAmount: 100, date: .now, description: "Subway", percantagePaid: 0.20)
-var transactions: [Transaction] = [
+var transaction2 = SplitTransaction(from: user1, to: user2, totalAmount: 100, date: .now, description: "Subway", percantagePaid: 0.20)
+var transactions: [SplitTransaction] = [
     transaction1, transaction2
 ]
 
 struct TransactionRow: View {
-    var transaction: Transaction
+    var transaction: SplitTransaction
     
     var body: some View {
         VStack(spacing: 0) {

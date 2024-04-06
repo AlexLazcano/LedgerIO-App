@@ -12,13 +12,14 @@
 		8583D3242BBDEFE700A3D498 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8583D3232BBDEFE700A3D498 /* Assets.xcassets */; };
 		8583D3272BBDEFE700A3D498 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8583D3262BBDEFE700A3D498 /* Preview Assets.xcassets */; };
 		8583D3312BBDF10600A3D498 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8583D3302BBDF10600A3D498 /* User.swift */; };
-		8583D3332BBDF11E00A3D498 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8583D3322BBDF11E00A3D498 /* Transaction.swift */; };
+		8583D3332BBDF11E00A3D498 /* SplitTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8583D3322BBDF11E00A3D498 /* SplitTransaction.swift */; };
 		8583D3352BBDF15100A3D498 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8583D3342BBDF15100A3D498 /* HomeView.swift */; };
 		8583D3372BBDF4B500A3D498 /* TransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8583D3362BBDF4B500A3D498 /* TransactionsView.swift */; };
 		8583D3392BBE1E6F00A3D498 /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8583D3382BBE1E6E00A3D498 /* FriendsView.swift */; };
 		8583D33C2BBE21EE00A3D498 /* ButtonSytles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8583D33B2BBE21EE00A3D498 /* ButtonSytles.swift */; };
 		8583D33F2BBE26CE00A3D498 /* AddTransactionForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8583D33E2BBE26CE00A3D498 /* AddTransactionForm.swift */; };
 		8583D3412BBE56C400A3D498 /* NumberOnlyViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8583D3402BBE56C400A3D498 /* NumberOnlyViewModifier.swift */; };
+		858DF74B2BC0E3FB00072CC2 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858DF74A2BC0E3FB00072CC2 /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,13 +29,14 @@
 		8583D3232BBDEFE700A3D498 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8583D3262BBDEFE700A3D498 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8583D3302BBDF10600A3D498 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		8583D3322BBDF11E00A3D498 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		8583D3322BBDF11E00A3D498 /* SplitTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitTransaction.swift; sourceTree = "<group>"; };
 		8583D3342BBDF15100A3D498 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8583D3362BBDF4B500A3D498 /* TransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsView.swift; sourceTree = "<group>"; };
 		8583D3382BBE1E6E00A3D498 /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
 		8583D33B2BBE21EE00A3D498 /* ButtonSytles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSytles.swift; sourceTree = "<group>"; };
 		8583D33E2BBE26CE00A3D498 /* AddTransactionForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionForm.swift; sourceTree = "<group>"; };
 		8583D3402BBE56C400A3D498 /* NumberOnlyViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOnlyViewModifier.swift; sourceTree = "<group>"; };
+		858DF74A2BC0E3FB00072CC2 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 		8583D32D2BBDF01800A3D498 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
+				858DF74A2BC0E3FB00072CC2 /* Network.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -109,7 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				8583D3302BBDF10600A3D498 /* User.swift */,
-				8583D3322BBDF11E00A3D498 /* Transaction.swift */,
+				8583D3322BBDF11E00A3D498 /* SplitTransaction.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -205,7 +208,8 @@
 				8583D3392BBE1E6F00A3D498 /* FriendsView.swift in Sources */,
 				8583D3222BBDEFE400A3D498 /* ContentView.swift in Sources */,
 				8583D3202BBDEFE400A3D498 /* LedgerIOApp.swift in Sources */,
-				8583D3332BBDF11E00A3D498 /* Transaction.swift in Sources */,
+				8583D3332BBDF11E00A3D498 /* SplitTransaction.swift in Sources */,
+				858DF74B2BC0E3FB00072CC2 /* Network.swift in Sources */,
 				8583D33F2BBE26CE00A3D498 /* AddTransactionForm.swift in Sources */,
 				8583D3352BBDF15100A3D498 /* HomeView.swift in Sources */,
 				8583D33C2BBE21EE00A3D498 /* ButtonSytles.swift in Sources */,

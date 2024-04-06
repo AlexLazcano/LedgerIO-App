@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Transaction: Codable, Hashable {
+struct SplitTransaction: Codable, Hashable {
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(recipient)
