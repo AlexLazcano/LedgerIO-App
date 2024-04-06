@@ -15,16 +15,17 @@ struct SplitTransaction: Codable, Hashable {
     
     let recipient: User
     let sender: User
-    let totalAmount: Double
-    let amountPaidByRecepient: Double
+    let total: Double
+    let splitAmount: Double
     let date: Date
     let description: String
+    
     
     init(from: User, to: User, totalAmount: Double, date: Date, description: String) {
             self.recipient = to
             self.sender = from
-            self.totalAmount = totalAmount
-            self.amountPaidByRecepient = totalAmount / 2  // Set default amountPaid to half of totalAmount
+            self.total = totalAmount
+            self.splitAmount = totalAmount / 2  // Set default amountPaid to half of totalAmount
             self.date = date
             self.description = description
         }
@@ -32,8 +33,8 @@ struct SplitTransaction: Codable, Hashable {
     init(from: User, to: User, totalAmount: Double, date: Date, description: String, percantagePaid: Double) {
             self.recipient = to
             self.sender = from
-            self.totalAmount = totalAmount
-            self.amountPaidByRecepient = totalAmount * percantagePaid  // Set default amountPaid to half of totalAmount
+            self.total = totalAmount
+            self.splitAmount = totalAmount * percantagePaid  // Set default amountPaid to half of totalAmount
             self.date = date
             self.description = description
         }

@@ -28,7 +28,7 @@ struct SplitTransactionRow: View {
                     .bold()
                 Spacer()
                 
-                Text("$\(splitTransaction.totalAmount, specifier: "%.2f")")
+                Text("$\(splitTransaction.total, specifier: "%.2f")")
                     .font(.title)
             }
             .padding(.horizontal, 20)
@@ -48,9 +48,9 @@ struct SplitTransactionRow: View {
                     
                 }
                 GridRow() {
-                    Text("$\(splitTransaction.amountPaidByRecepient, specifier: "%.2f")")
+                    Text("$\(splitTransaction.splitAmount, specifier: "%.2f")")
                         .font(.title3)
-                    Text("$\(splitTransaction.totalAmount - splitTransaction.amountPaidByRecepient, specifier: "%.2f")")
+                    Text("$\(splitTransaction.total - splitTransaction.splitAmount, specifier: "%.2f")")
                         .font(.title3)
                 }
                 
@@ -128,6 +128,17 @@ struct SplitTransactionsView: View {
         .sheet(isPresented: $isShowingSheet){
             AddTransactionForm(isShowing: $isShowingSheet)
         }
+        Button(action: {
+            network.getSplitTransactions()
+        }) {
+            HStack {
+                Text("Pull Transactions")
+                Image(systemName: "icloud.and.arrow.down.fill")
+            }
+            .modifier(AddDefaultButtonStyles())
+            
+        }
+        
     }
 }
 
