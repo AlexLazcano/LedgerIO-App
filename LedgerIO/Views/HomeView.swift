@@ -12,7 +12,7 @@ struct HomeView: View {
         NavigationView {
             VStack {
                 Spacer()
-                NavigationLink(destination: TransactionsView()) {
+                NavigationLink(destination: SplitTransactionsView()) {
                     Text("Transactions")
                         .modifier(AddDefaultButtonStyles())
                 }

@@ -17,18 +17,18 @@ var transactions: [SplitTransaction] = [
     transaction1, transaction2
 ]
 
-struct TransactionRow: View {
-    var transaction: SplitTransaction
+struct SplitTransactionRow: View {
+    var splitTransaction: SplitTransaction
     
     var body: some View {
         VStack(spacing: 0) {
             HStack {
-                Text(transaction.date, style: .date)
+                Text(splitTransaction.date, style: .date)
                     .font(.headline)
                     .bold()
                 Spacer()
                 
-                Text("$\(transaction.totalAmount, specifier: "%.2f")")
+                Text("$\(splitTransaction.totalAmount, specifier: "%.2f")")
                     .font(.title)
             }
             .padding(.horizontal, 20)
@@ -41,16 +41,16 @@ struct TransactionRow: View {
             
             Grid() {
                 GridRow {
-                    Text(transaction.recipient.name)
+                    Text(splitTransaction.recipient.name)
                         .font(.title2)
-                    Text(transaction.sender.name)
+                    Text(splitTransaction.sender.name)
                         .font(.title2)
                     
                 }
                 GridRow() {
-                    Text("$\(transaction.amountPaidByRecepient, specifier: "%.2f")")
+                    Text("$\(splitTransaction.amountPaidByRecepient, specifier: "%.2f")")
                         .font(.title3)
-                    Text("$\(transaction.totalAmount - transaction.amountPaidByRecepient, specifier: "%.2f")")
+                    Text("$\(splitTransaction.totalAmount - splitTransaction.amountPaidByRecepient, specifier: "%.2f")")
                         .font(.title3)
                 }
                 
@@ -60,7 +60,7 @@ struct TransactionRow: View {
             .padding(.top)
             
             HStack {
-                Text(transaction.description)
+                Text(splitTransaction.description)
                     .font(.title)
                     .bold()
                 
@@ -93,15 +93,24 @@ struct TransactionRow: View {
     }
 }
 
-struct TransactionsView: View {
+struct SplitTransactionsView: View {
+    @EnvironmentObject var network: Network
     @State private var isShowingSheet = false
     
     var body: some View {
+        if network.splitTransactions.isEmpty {
+            ContentUnavailableView {
+                Label("No Split Transactions Found", systemImage: "exclamationmark.square")
+            } description: {
+                Text("Create new split transaction")
+            }
+        }
+        
         
         ScrollView {
             VStack(spacing: 15) {
-                ForEach(transactions, id: \.self) { transaction in
-                    TransactionRow(transaction: transaction)
+                ForEach(network.splitTransactions, id: \.self) { transaction in
+                    SplitTransactionRow(splitTransaction: transaction)
                 }
             }
             
@@ -123,5 +132,6 @@ struct TransactionsView: View {
 }
 
 #Preview {
-    TransactionsView()
+    SplitTransactionsView()
+        .environmentObject(Network())
 }
