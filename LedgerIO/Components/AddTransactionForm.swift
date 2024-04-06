@@ -33,8 +33,9 @@ struct AddTransactionForm: View {
             Text(mainUser.name)
             
             Section(header: Text("Select Friend")) {
+                
                 Picker("Friend", selection: $selectedFriendIndex) {
-                    Text("").tag(0)
+                    Text("None Selected").tag(nil as Int?)
                     ForEach(0..<friends.count, id: \.self) { index in
                         Text(friends[index].name).tag(index as Int?)
                     }
